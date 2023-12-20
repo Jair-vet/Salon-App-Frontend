@@ -12,6 +12,11 @@
         date: 'DD/MM/YYYY',
         month: 'MMMM'
     })
+
+    const disableDate = (date) => {
+        const today = new Date()
+        return date < today || date.getMonth() > today.getMonth() + 1 || [0,7].includes( date.getDay() )
+    }
 </script>
 
 
@@ -45,6 +50,7 @@
             <div class="lg:flex gap-5 items-start">
                 <div class="md:w-1/2 w-full flex justify-center rounded-lg">
                     <VueTailwindDatepicker 
+                        :disable-date="disableDate"
                         as-single
                         no-input
                         :formatter="formatter"            
@@ -66,6 +72,7 @@
                     <div v-if="appointments.isValidReservation" class="mt-4 flex justify-center">
                         <button
                             class="w-full md:w-auto duration-300 hover:bg-blue-700 bg-blue-500 p-3 rounded-lg uppercase font-black text-white"
+                            @click="appointments.createAppointment"
                         >confirm reservation</button>
                     </div>
                 </div>
