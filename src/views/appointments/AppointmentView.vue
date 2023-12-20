@@ -2,8 +2,16 @@
     import SelectedService from '@/components/SelectedService.vue';
     import { useAppointmentsStore } from '../../stores/appointments';
     import { formatCurrency } from '../../helpers/index.js'
+    import VueTailwindDatepicker from 'vue-tailwind-datepicker'
+    import { ref } from 'vue';
+
 
     const appointments = useAppointmentsStore()
+
+    const formatter = ref({
+        date: 'DD/MM/YYYY',
+        month: 'MMMM'
+    })
 </script>
 
 
@@ -14,6 +22,7 @@
 
         <h3 class="text-3xl font-extrabold text-white">Services</h3>
 
+        <!-- Services -->
         <p 
             v-if="appointments.noServicesSelected"
             class="text-3xl text-yellow-600 font-black text-center uppercase mt-10" 
@@ -28,6 +37,24 @@
             />
 
             <p class="md:text-right text-center mt-5 text-white text-2xl">Total to pay: <span class="text-green-600 font-black">{{ formatCurrency(appointments.totalAmount) }}</span></p>
+        </div>
+
+        <!-- Calendar -->
+        <div class="space-y-8" v-if="!appointments.noServicesSelected">
+            <h3 class="text-3xl text-center mt-4 font-extrabold text-white">Date and Hour</h3>
+            <div class="lg:flex gap-5 items-start">
+                <div class="w-full lg:w-96 flex justify-center rounded-lg">
+                    <VueTailwindDatepicker 
+                        as-single
+                        no-input
+                        :formatter="formatter"            
+                        v-model="appointments.date"
+                    />
+                </div>
+                <div>
+
+                </div>
+            </div>
         </div>
 
     </div>

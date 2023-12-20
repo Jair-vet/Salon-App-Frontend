@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const colors = require('tailwindcss/colors')
+
 export default {
   content: [
     "./index.html",
@@ -10,10 +12,10 @@ export default {
     extend: {
       backgroundImage: {
         'app' : "url('/img/1.jpg')"
+      },
+      colors: {
+        "vtd-primary": colors.green
       }
-      // colors: {
-      //   "vtd-primary": colors.green
-      // }
     },
   },
   plugins: [

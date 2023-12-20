@@ -6,6 +6,7 @@ import { useRouter } from 'vue-router'
 export const useAppointmentsStore = defineStore('appointments', () => {
 
     const services = ref([])
+    const date = ref('')
 
     function onServiceSelected(service) {
         if(services.value.some(selectedService => selectedService._id === service._id)) {
@@ -34,6 +35,7 @@ export const useAppointmentsStore = defineStore('appointments', () => {
 
     return {
         services,
+        date,
         onServiceSelected,
         isServiceSelected,
         totalAmount,
