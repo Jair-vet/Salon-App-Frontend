@@ -14,8 +14,8 @@
 
 <template>
     <div
-        class="p-5 space-y-5 rounded-lg cursor-pointer duration-500 md:h-32 hover:bg-gray-500 hover:text-white"
-        :class="appointments.isServiceSelected(service._id) ? 'bg-blue-500 text-white' : 'bg-gray-200'"
+        class="p-5 space-y-5 rounded-lg cursor-pointer duration-500 md:h-32 hover:bg-gray-600 hover:text-white"
+        :class="appointments.isServiceSelected(service._id) ? 'opacity-40 bg-gray-500 text-white' : 'bg-gray-200'"
         @click="appointments.onServiceSelected(service)"
     >
         <p class="text-xl font-light">{{ service.name }}</p>
