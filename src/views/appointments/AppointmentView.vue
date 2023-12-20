@@ -43,7 +43,7 @@
         <div class="space-y-8" v-if="!appointments.noServicesSelected">
             <h3 class="text-3xl text-center mt-4 font-extrabold text-white">Date and Hour</h3>
             <div class="lg:flex gap-5 items-start">
-                <div class="w-full lg:w-96 flex justify-center rounded-lg">
+                <div class="md:w-1/2 w-full flex justify-center rounded-lg">
                     <VueTailwindDatepicker 
                         as-single
                         no-input
@@ -51,14 +51,23 @@
                         v-model="appointments.date"
                     />
                 </div>
-                <div class="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-5 mt-5 lg:mt-0">
-                    <button
-                        v-for="hour in appointments.hours"
-                        :key="hour.id"
-                        class="block text-blue-500 rounded-lg text-xl font-black p-3 bg-white"
-                    >
-                        {{ hour }}
-                    </button>
+                <div class="md:w-1/2 w-full">
+                    <div class="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-5 mt-5 lg:mt-0">
+                        <button
+                            v-for="hour in appointments.hours"
+                            :key="hour.id"
+                            class="block text-blue-500 rounded-lg text-xl font-black p-2 duration-300 hover:bg-gray-400"
+                            :class="appointments.time === hour ?  'bg-blue-500 text-white hover:bg-blue-500' :  'bg-white'"
+                            @click="appointments.time = hour"
+                        >
+                            {{ hour }}
+                        </button>
+                    </div>
+                    <div v-if="appointments.isValidReservation" class="mt-4 flex justify-center">
+                        <button
+                            class="w-full md:w-auto duration-300 hover:bg-blue-700 bg-blue-500 p-3 rounded-lg uppercase font-black text-white"
+                        >confirm reservation</button>
+                    </div>
                 </div>
             </div>
         </div>
