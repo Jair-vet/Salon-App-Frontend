@@ -11,7 +11,7 @@
         <h2 class="text-4xl font-extrabold text-white mt-10">Services</h2>
         <p class="text-white text-lg mt-5">Choose at least one service for your appointment</p>
     
-        <div class="grid md:grid-cols-2 lg:md:grid-cols-3 gap-5 mt-5">
+        <div class="grid md:grid-cols-2 gap-5 mt-5">
             <ServiceItem
                 v-for="service in store.services"
                 :key="service._id"
