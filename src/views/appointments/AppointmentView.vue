@@ -14,14 +14,21 @@
 
         <h3 class="text-3xl font-extrabold text-white">Services</h3>
 
-        <div class="grid gap-5 mt-5">
+        <p 
+            v-if="appointments.noServicesSelected"
+            class="text-3xl text-yellow-600 font-black text-center uppercase mt-10" 
+            >nothing is selected</p>
+        <div
+            v-else 
+            class="grid gap-5 mt-5">
             <SelectedService 
                 v-for="service in appointments.services"
                 :key="service._id"
                 :service="service"
             />
+
+            <p class="md:text-right text-center mt-5 text-white text-2xl">Total to pay: <span class="text-green-600 font-black">{{ formatCurrency(appointments.totalAmount) }}</span></p>
         </div>
 
-        <p class="md:text-right text-center mt-5 text-white text-2xl">Total to pay: <span class="text-green-600 font-black">{{ formatCurrency(appointments.totalAmount) }}</span></p>
     </div>
 </template>
