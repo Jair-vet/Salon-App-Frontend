@@ -51,8 +51,14 @@
                         v-model="appointments.date"
                     />
                 </div>
-                <div>
-
+                <div class="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-5 mt-5 lg:mt-0">
+                    <button
+                        v-for="hour in appointments.hours"
+                        :key="hour.id"
+                        class="block text-blue-500 rounded-lg text-xl font-black p-3 bg-white"
+                    >
+                        {{ hour }}
+                    </button>
                 </div>
             </div>
         </div>
