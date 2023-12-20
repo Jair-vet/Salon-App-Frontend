@@ -1,14 +1,13 @@
 <script setup>
-   
+   import { useRoute } from 'vue-router'
+
+   const route = useRoute()
+   console.log(route.name);
 </script>
 
 
 <template>
-    <div>
-        <h1>New Appoinment Layout</h1>
-    </div>
-
-    
+   
     <div class="space-y-5">
         <RouterView />
     </div>
