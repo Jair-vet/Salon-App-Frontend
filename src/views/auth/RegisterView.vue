@@ -12,7 +12,7 @@
                 message: data.msg,
                 type: 'success'
             })
-            reset('registerForm')
+            reset('registerForm') // reset Form
         } catch (error) {
             toast.open({
                 message: error.response.data.msg,
