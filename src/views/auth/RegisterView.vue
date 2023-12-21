@@ -1,9 +1,9 @@
 <script setup>
     import { inject } from 'vue'
     import { reset } from '@formkit/vue'
-    // import AuthAPI from '../../api/AuthAPI'
+    import AuthAPI from '@/api/AuthAPI'
 
-    // const toast = inject('toast')
+    const toast = inject('toast')
 
     const handleSubmit = async ({password_confirm, ...formData}) => {
         try {
@@ -64,17 +64,17 @@
                 type="password"
                 label="Password"
                 name="password"
-                placeholder="User Password - Min 8 Characters"
-                validation="required|length:8"
+                placeholder="User Password - Min 6 Characters"
+                validation="required|length:6"
                 :validation-messages="{
                     required: 'Password is mandatory',
-                    length: 'The password must contain at least 8 characters'
+                    length: 'The password must contain at least 6 characters'
                 }"
             />
     
             <FormKit
                 type="password"
-                label="Repetir Password"
+                label="Repeat Password"
                 name="password_confirm"
                 placeholder="Repeat the password"
                 validation="required|confirm"
