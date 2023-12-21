@@ -17,9 +17,9 @@
             <RouterLink
                 v-for="authRoute in authRoutes"
                 :key="authRoute.id"
-                class="uppercase font-bold text-white md:p-3 p-1 rounded-md border shadow-xl border-gray-800 duration-300 hover:text-blue-500 hover:border hover:border-blue-500"
+                class="uppercase font-bold w-full mr-2 text-center text-white md:p-2 p-1 rounded-md border border-gray-800 duration-300 hover:text-blue-500 hover:border hover:border-blue-500"
                 :to="{name: authRoute.name}"
-                :class="{ 'hidden' : route.name === authRoute.name }"
+
 
             >   {{ authRoute.text }}
             </RouterLink>
