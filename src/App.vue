@@ -43,7 +43,7 @@
           </nav>
         </div>
         <!-- Log out button -->
-        <div class="relative my-5 flex flex-col justify-end px-10">
+        <div v-if="user.getUserName" class="relative my-5 flex flex-col justify-end px-10">
           <button
               type="button"
               @click="user.logout"
