@@ -12,6 +12,7 @@
     "@formkit/themes": "^1.4.0",
     "@formkit/vue": "^1.4.0",
     "axios": "^1.6.2",
+    "date-fns": "^3.0.6",
     "pinia": "^2.1.7",
     "vue": "^3.3.11",
     "vue-router": "^4.2.5",
