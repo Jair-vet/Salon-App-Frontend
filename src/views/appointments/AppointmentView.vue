@@ -58,13 +58,14 @@
                     />
                 </div>
                 <div class="md:w-1/2 w-full">
-                    <div class="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-5 mt-5 lg:mt-0">
+                    <div v-if="appointments.isDateSelected" class="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-5 mt-5 lg:mt-0">
                         <button
                             v-for="hour in appointments.hours"
                             :key="hour.id"
-                            class="block text-blue-500 rounded-lg text-xl font-black p-2 duration-300 hover:bg-gray-400"
+                            class="block text-blue-500 rounded-lg text-xl font-black p-2 duration-300 hover:bg-gray-400 disabled:opacity-15 disabled:cursor-not-allowed"
                             :class="appointments.time === hour ?  'bg-blue-500 text-white hover:bg-blue-500' :  'bg-white'"
                             @click="appointments.time = hour"
+                            :disabled="appointments.disableTime(hour) ? true : false"
                         >
                             {{ hour }}
                         </button>
