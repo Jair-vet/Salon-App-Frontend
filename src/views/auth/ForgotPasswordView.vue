@@ -41,7 +41,6 @@
                 placeholder="User Email"
                 validation="required|email"
                 :validation-messages="{
-                    required: 'El Nombre es obligatorio',
                     email: 'Invalid Email'
                 }"
             />

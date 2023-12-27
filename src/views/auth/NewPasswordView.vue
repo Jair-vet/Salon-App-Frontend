@@ -1,12 +1,12 @@
 <script setup>
     import { onMounted, inject, ref } from 'vue'
-    import { useRoute, useRouter } from 'vue-router'
+    import { useRoute, useRouter } from 'vue-router'
     import AuthAPI from '../../api/AuthAPI';
     
     const toast = inject('toast')
     const router = useRouter()
     const route = useRoute()
-    const { token } = route.params
+    const { token } = route.params
 
     const validToken = ref(false)
     
@@ -44,14 +44,14 @@
 
 <template>
     <div v-if="validToken">
-        <h1 class="text-6xl font-extrabold text-white text-center mt-10">Nuevo Password</h1>
-        <p class="text-2xl text-white text-center my-5">Coloca tu nuevo password</p>
+        <h1 class="text-6xl font-extrabold text-white text-center mt-10">New Password</h1>
+        <p class="text-2xl text-white text-center my-5">Type your new password</p>
 
         <FormKit
             id="newPasswordForm"
             type="form"
             :actions="false"
-            incomplete-message="No se pudo enviar, revisa las notificaciones"
+            incomplete-message="Could not send, check notifications"
             @submit="handleSubmit"
         >
 
@@ -59,20 +59,20 @@
                 type="password"
                 label="Password"
                 name="password"
-                placeholder="Password de Usuario - Min 8 Caracteres"
-                validation="required|length:8"
+                placeholder="User Password - Min 6 Characters"
+                validation="required|length:6"
                 :validation-messages="{
-                    required: 'El Password es obligatorio',
-                    length: 'El password debe contener al menos 8 caracteres'
+                    required: 'Password is Mandatory',
+                    length: 'The password must contain at least 6 characters'
                 }"
             />
 
-            <FormKit type="submit">Guardar Password</FormKit>
+            <FormKit type="submit">Save Password</FormKit>
 
         </FormKit>
     </div>
 
-    <p v-else class="text-center text-2xl font-black text-white">Token no válido</p>
+    <p v-else class="text-center text-2xl font-black text-white">Invalid Token</p>
 </template>
 
 
