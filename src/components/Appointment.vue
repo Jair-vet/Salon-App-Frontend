@@ -44,7 +44,7 @@
 
             <button
                 class="bg-red-600 duration-300 hover:bg-red-800 rounded-lg p-3 text-white text-sm uppercase font-black flex-1 md:flex-none"
-                @click="appointment.cancelAppointment()"
+                @click="appointments.cancelAppointment(appointment._id)"
             >
                 Cancel Date
             </button>

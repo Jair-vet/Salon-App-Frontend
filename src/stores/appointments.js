@@ -53,7 +53,7 @@ export const useAppointmentsStore = defineStore('appointments', () => {
             services.value = services.value.filter( selectedService => selectedService._id !== service._id )
         } else {
             if(services.value.length === 3) {
-                alert('Maximum 2 services per appointment')
+                alert('Maximum 3 services per appointment')
                 return
             }
             services.value.push(service)
