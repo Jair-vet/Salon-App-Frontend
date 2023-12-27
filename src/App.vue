@@ -22,8 +22,8 @@
 
       <!-- Button -->
       <div class="">
+        <!-- Nav -->
         <div>
-          <!-- Nav -->
           <nav class="my-5 flex flex-col px-10 gap-3 md:mt-24">
             <RouterLink
               :to="{name: 'new-appointment'}"

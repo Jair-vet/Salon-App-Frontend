@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import AppointmentsLayoutVue from '@/views/appointments/AppointmentsLayout.vue'
+import AppointmentsLayout from '@/views/appointments/AppointmentsLayout.vue'
 import AuthAPI from '@/api/AuthAPI'
 
 const router = createRouter({
@@ -14,7 +14,7 @@ const router = createRouter({
     {
       path: '/reservaciones',
       name: 'appointments',
-      component: AppointmentsLayoutVue,
+      component: AppointmentsLayout,
       meta: { requiresAuth: true },
       children: [
         {
@@ -22,19 +22,19 @@ const router = createRouter({
           name: 'my-appointments',
           component: () => import('../views/appointments/MyAppointmentsView.vue')
         },
-        { 
+        {
           path: 'nueva',
           component: () => import('../views/appointments/NewAppointmentLayout.vue'),
           children: [
             {
-              path: '',
-              name: 'new-appointment',
-              component: () => import('../views/appointments/ServicesView.vue'),
+                path: '',
+                name: 'new-appointment',
+                component: () => import('../views/appointments/ServicesView.vue'),
             },
             {
-              path: 'detalles',
-              name: 'appointment-details',
-              component: () => import('../views/appointments/AppointmentView.vue'),
+                path: 'detalles',
+                name: 'appointment-details',
+                component: () => import('../views/appointments/AppointmentView.vue'),
             },
           ]
         },

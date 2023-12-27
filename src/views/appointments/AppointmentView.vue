@@ -73,7 +73,7 @@
                     <div v-if="appointments.isValidReservation" class="mt-4 flex justify-center">
                         <button
                             class="w-full md:w-auto duration-300 hover:bg-blue-700 bg-blue-500 p-3 rounded-lg uppercase font-black text-white"
-                            @click="appointments.createAppointment"
+                            @click="appointments.saveAppointment"
                         >confirm reservation</button>
                     </div>
                 </div>
