@@ -5,7 +5,7 @@
     const authRoutes = [
         { name: 'register', text: 'Create Account' },
         { name: 'login', text: 'Log In' },
-        // { name: 'forgot-password', text: 'Forgot Password' },
+        { name: 'forgot-password', text: 'Forgot Password' },
     ]
 </script>
 
@@ -17,8 +17,9 @@
             <RouterLink
                 v-for="authRoute in authRoutes"
                 :key="authRoute.id"
-                class="uppercase font-bold w-full mr-2 text-center text-white md:p-2 p-1 rounded-md border border-gray-800 duration-300 hover:text-blue-500 hover:border hover:border-blue-500"
+                class="uppercase font-bold w-full flex justify-center items-center mr-2 text-center text-white md:p-2 p-1 rounded-md border border-gray-800 duration-300 hover:text-blue-500 hover:border hover:border-blue-500"
                 :to="{name: authRoute.name}"
+                :class="{ 'hidden' : route.name === authRoute.name}"
 
 
             >   {{ authRoute.text }}
